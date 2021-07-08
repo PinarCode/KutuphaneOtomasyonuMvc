@@ -69,7 +69,6 @@ namespace KutuphaneOtomasyonuMvc.Controllers
             return View(model);
         }
 
-
         public ActionResult BorrowListForAdmin()
         {
             List<SelectListItem> users = db.Users.ToList().Select(j => new SelectListItem() { Text = string.Format("{0} {1}", j.FirstName, j.LastName), Value = j.Id.ToString() }).ToList();
