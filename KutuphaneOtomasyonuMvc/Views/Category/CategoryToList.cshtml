@@ -1,0 +1,27 @@
+﻿@using KutuphaneOtomasyonuMvc.DbModels.Entity
+@model List<Category>
+@{
+    ViewBag.Title = "CategoryToList";
+}
+
+<a href="/Category/Insert/" class="btn btn-primary">Kategori Ekle</a><br /><br />
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>KATEGORİ ADI</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
+    </tr>
+    <tbody>
+        @foreach (var category in Model)
+        {
+        <tr>
+            <th>@category.Id</th>
+            <td>@category.CategoryName</td>
+            <td><a href="/Category/Delete/@category.Id" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Category/Update/@category.Id" class="btn btn-default">Güncelle</a></td>
+        </tr>
+        }
+    </tbody>
+</table>
+

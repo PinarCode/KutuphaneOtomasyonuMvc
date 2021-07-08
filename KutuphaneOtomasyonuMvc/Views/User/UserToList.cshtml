@@ -1,0 +1,38 @@
+﻿@using KutuphaneOtomasyonuMvc.DbModels.Entity
+@model List<User>
+@{
+    ViewBag.Title = "UserToList";
+}
+
+<a href="/Register/Register/" class="btn btn-primary">Kullanıcı Ekle</a><br /><br />
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>KULLANICI ADI</th>
+        <th>ADI</th>
+        <th>SOYADI</th>
+        <th>ADRESİ</th>
+        <th>TELEFON NUMARASI</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
+    </tr>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            if (user.Type == 0)
+            {
+        <tr>
+            <th>@user.Id</th>
+            <td>@user.UserName</td>
+            <td>@user.FirstName</td>
+            <td>@user.LastName</td>
+            <td>@user.UserAddress</td>
+            <td>@user.PhoneNumber</td>
+            <td><a href="/User/Delete/@user.Id" class="btn btn-danger">Sil</a></td>
+            <td><a href="/User/Update/@user.Id" class="btn btn-default">Güncelle</a></td>
+        </tr>
+            }
+        }
+    </tbody>
+</table>
+

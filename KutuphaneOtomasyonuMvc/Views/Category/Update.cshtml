@@ -1,0 +1,20 @@
+﻿@model KutuphaneOtomasyonuMvc.DbModels.Entity.Category
+@{
+    ViewBag.Title = "Update";
+}
+
+@using (Html.BeginForm("Update", "Category", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.LabelFor(u => u.Id)
+    @Html.TextBoxFor(u => u.Id, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(c => c.CategoryName)
+    @Html.TextBoxFor(c => c.CategoryName, new { @class = "form-control" })
+
+</div>
+    <div>
+        <button class="btn btn-primary">Kategori Güncelle</button>
+        <a href="/Category/CategoryToList/" class="btn btn-info">Geri</a>
+    </div>
+}

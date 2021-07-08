@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Kütüphane Otomasyonu", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @if ((Session["LoginUser"] as KutuphaneOtomasyonuMvc.DbModels.Entity.User).Type == 1)
+                    {
+                        <li>@Html.ActionLink("Anasayfa", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Kullanıcılar", "UserToList", "User")</li>
+                        <li>@Html.ActionLink("Kategoriler", "CategoryToList", "Category")</li>
+                        <li>@Html.ActionLink("Yazarlar", "AuthorToList", "Author")</li>
+                        <li>@Html.ActionLink("Kitaplar", "BookToList", "Book")</li>
+                        <li>@Html.ActionLink("Ödünç Alanlar", "BorrowListForAdmin", "Borrow")</li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Anasayfa", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Kitaplar", "BookToList", "Book")</li>
+                    }
+
+                    <li style="margin-left:300px;">@Html.ActionLink("Çıkış", "Login", "Login")</li>
+                </ul>
+            </div>
+        </div>
+    </div><br />
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My Library Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

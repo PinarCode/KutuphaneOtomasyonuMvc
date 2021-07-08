@@ -1,0 +1,23 @@
+﻿@model KutuphaneOtomasyonuMvc.DbModels.Entity.Author
+@{
+    ViewBag.Title = "Update";
+}
+
+@using (Html.BeginForm("Update", "Author", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.LabelFor(u => u.Id)
+    @Html.TextBoxFor(u => u.Id, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(c => c.FirstName)
+    @Html.TextBoxFor(c => c.FirstName, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(c => c.LastName)
+    @Html.TextBoxFor(c => c.LastName, new { @class = "form-control" })
+</div>
+    <div>
+        <button class="btn btn-primary">Yazar Güncelle</button>
+        <a href="/Author/AuthorToList/" class="btn btn-info">Geri</a>
+    </div>
+}
+

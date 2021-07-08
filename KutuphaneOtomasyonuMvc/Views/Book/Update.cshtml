@@ -1,0 +1,32 @@
+﻿@model KutuphaneOtomasyonuMvc.DbModels.Entity.Book
+@{
+    ViewBag.Title = "Update";
+}
+
+@using (Html.BeginForm("Update", "Book", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.LabelFor(u => u.Id)
+    @Html.TextBoxFor(u => u.Id, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(c => c.CategoryId)
+    @Html.TextBoxFor(c => c.CategoryId, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(c => c.AuthorId)
+    @Html.TextBoxFor(c => c.AuthorId, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(c => c.BookName)
+    @Html.TextBoxFor(c => c.BookName, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(c => c.ShelfNumber)
+    @Html.TextBoxFor(c => c.ShelfNumber, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(c => c.PageNumber)
+    @Html.TextBoxFor(c => c.PageNumber, new { @class = "form-control" })
+</div>
+    <div>
+        <button class="btn btn-primary">Kitap Güncelle</button>
+        <a href="/Book/BookToList/" class="btn btn-info">Geri</a>
+    </div>
+}
+

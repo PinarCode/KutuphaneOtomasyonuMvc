@@ -1,0 +1,36 @@
+﻿@using KutuphaneOtomasyonuMvc.DbModels.Entity
+@model List<Book>
+@{
+    ViewBag.Title = "BookToList";
+}
+
+<a href="/Book/Insert/" class="btn btn-primary">Kitap Ekle</a>
+<a href="/Borrow/BorrowList/" class="btn btn-info">Ödünç Alınanlar</a><br /><br />
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>KATEGORİ</th>
+        <th>YAZAR</th>
+        <th>KİTAP ADI</th>
+        <th>RAF NUMARASI</th>
+        <th>SAYFA SAYISI</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
+    </tr>
+    <tbody>
+        @foreach (var book in Model)
+        {
+            <tr>
+                <td><b>@book.Id</b></td>
+                <td>@book.Category.CategoryName</td>
+                <td>@book.Author.FirstName @book.Author.LastName</td>
+                <td><a href="/Borrow/BorrowToBook/@book.Id">@book.BookName</a></td>
+                <td>@book.ShelfNumber</td>
+                <td>@book.PageNumber</td>
+                <td><a href="/Book/Delete/@book.Id" class="btn btn-danger">Sil</a></td>
+                <td><a href="/Book/Update/@book.Id" class="btn btn-default">Güncelle</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+

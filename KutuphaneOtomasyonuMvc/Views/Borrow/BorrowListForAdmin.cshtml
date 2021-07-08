@@ -1,0 +1,67 @@
+﻿@{
+    ViewBag.Title = "adasdsad";
+}
+
+
+<div>
+    <label>Kullanıcılar: </label>
+    <select id="ddlUserList">
+        <option value="0">Seçiniz</option>
+        @foreach (var item in (List<SelectListItem>)ViewBag.user)
+        {
+            <option value="@item.Value">@item.Text</option>
+        }
+    </select>
+</div>
+<br />
+<a href="javascript:;" id="btnOduncKitaplariGetir" class="btn btn-info">Ödünç Aldığı Kitaplar</a><br /><br />
+
+<div class="row">
+    <table class="table table-bordered" id="tblBorrow">
+        <tr>
+            <th>KİTAP ADI</th>
+            <th>YAZAR ADI</th>
+            <th>ALIŞ TARİHİ</th>
+            <th>TESLİM TARİHİ</th>
+        </tr>
+        <tbody id="tblBorrowBody">
+            @*@foreach (var borrow in Model)
+                {
+                    <tr>
+                        <td>@borrow.BookName</td>
+                        <td>@borrow.BookAuthor</td>
+                        <td>@borrow.BorrowStartDate</td>
+                        <td>@borrow.BorrowEndDate</td>
+                        <td><a href="/Borrow/Delete/" class="btn btn-warning">Teslim Et</a></td>
+                    </tr>
+                }*@
+        </tbody>
+    </table>
+</div>
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $("#btnOduncKitaplariGetir").on("click", function () {
+                var selectedUserId = $("#ddlUserList").val();
+                if (selectedUserId == 0) {
+                    alert("Lütfen Kullanıcı Seçiniz");
+                    return;
+                } else {
+                    $.getJSON('/Borrow/BorrowListForAdminData?userId=' + selectedUserId, function (data) {
+                        console.log("success");
+                    }).done(function (resut) {
+                        console.log(resut);
+                        $('#tblBorrowBody').empty();
+                        for (var i = 0; i < resut.length; i++) {
+                            $('#tblBorrowBody').append('<tr><td>' + resut[i].BookName + '</td><td>' + resut[i].BookAuthor + '</td><td>' + resut[i].BorrowStartDate + '</td><td>' + resut[i].BorrowStartDate + '</td></tr>');
+                        }
+                    }).fail(function (err) {
+                        console.log(err);
+                    });
+                }
+            });
+
+        });
+    </script>
+
+}

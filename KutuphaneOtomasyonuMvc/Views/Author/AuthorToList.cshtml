@@ -1,0 +1,29 @@
+﻿@using KutuphaneOtomasyonuMvc.DbModels.Entity
+@model List<Author>
+@{
+    ViewBag.Title = "AuthorToList";
+}
+
+<a href="/Author/Insert/" class="btn btn-primary">Yazar Ekle</a><br /><br />
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>ADI</th>
+        <th>SOYADI</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
+    </tr>
+    <tbody>
+        @foreach (var author in Model)
+        {
+        <tr>
+            <th>@author.Id</th>
+            <td>@author.FirstName</td>
+            <td>@author.LastName</td>
+            <td><a href="/Author/Delete/@author.Id" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Author/Update/@author.Id" class="btn btn-default">Güncelle</a></td>
+        </tr>
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,29 @@
+﻿@using KutuphaneOtomasyonuMvc.Models.Borrow
+@model List<UserBorrowModeli>
+@{
+    ViewBag.Title = "BorrowList";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>KİTAP ADI</th>
+        <th>YAZAR ADI</th>
+        <th>ALIŞ TARİHİ</th>
+        <th>TESLİM TARİHİ</th>
+        <th>TESLİM ET</th>
+    </tr>
+    <tbody>
+        @foreach (var borrow in Model)
+        {
+            <tr>
+                <td>@borrow.BookName</td>
+                <td>@borrow.BookAuthor</td>
+                <td>@borrow.BorrowStartDate</td>
+                <td>@borrow.BorrowEndDate</td>
+                <td><a href="/Borrow/Delete/" class="btn btn-warning">Teslim Et</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Book/BookToList/" class="btn btn-info">Geri</a>
+

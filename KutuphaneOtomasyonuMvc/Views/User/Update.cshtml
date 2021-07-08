@@ -1,0 +1,32 @@
+﻿@model KutuphaneOtomasyonuMvc.DbModels.Entity.User
+@{
+    ViewBag.Title = "Update";
+}
+
+@using (Html.BeginForm("Update", "User", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.LabelFor(u => u.Id)
+    @Html.TextBoxFor(u => u.Id, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(u => u.UserName)
+    @Html.TextBoxFor(u => u.UserName, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(u => u.FirstName)
+    @Html.TextBoxFor(u => u.FirstName, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(u => u.LastName)
+    @Html.TextBoxFor(u => u.LastName, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(u => u.UserAddress)
+    @Html.TextBoxFor(u => u.UserAddress, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(u => u.PhoneNumber)
+    @Html.TextBoxFor(u => u.PhoneNumber, new { @class = "form-control" })
+</div>
+<div>
+    <button class="btn btn-primary">Kullanıcı Güncelle</button>
+    <a href="/User/UserToList/" class="btn btn-info">Geri</a>
+</div>
+}
+

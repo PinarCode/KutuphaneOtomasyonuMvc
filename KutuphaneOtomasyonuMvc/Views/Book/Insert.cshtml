@@ -1,0 +1,36 @@
+﻿@model KutuphaneOtomasyonuMvc.Models.Book.BookModel
+@{
+    ViewBag.Title = "Insert";
+}
+<form class="form-group" method="post">
+        <br />
+        <div>
+            <label>Kategori</label>
+            @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.category, "Kategori seçiniz", new { data_placeholder = "Kategori Seçiniz", @class = "form-control" })
+        </div>
+        <br />
+        <div>
+            <label>Yazar</label>
+            @Html.DropDownListFor(x => x.AuthorId, (List<SelectListItem>)ViewBag.author, "Yazar seçiniz", new { data_placeholder = "Yazar Seçiniz", @class = "form-control" })
+        </div>
+        <br />
+        <div>
+            <label>Kitap Adı</label>
+            <input type="text" class="form-control" name="BookName" />
+        </div>
+        <br />
+        <div>
+            <label>Raf Numarası</label>
+            <input type="text" class="form-control" name="ShelfNumber" />
+        </div>
+        <br />
+        <div>
+            <label>Sayfa Sayısı</label>
+            <input type="text" class="form-control" name="PageNumber" />
+        </div>
+        <br />
+        <div style="margin-top:15px">
+            <button class="btn btn-info">Kitap Ekle</button>
+        </div>
+</form>
+

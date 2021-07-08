@@ -1,0 +1,41 @@
+﻿@model KutuphaneOtomasyonuMvc.Models.Borrow.BorrowModel
+@{
+    ViewBag.Title = "BorrowToBook";
+}
+
+@using (Html.BeginForm("BorrowToBook", "Borrow", FormMethod.Post))
+{
+<div>
+    @Html.HiddenFor(b => b.BookName)
+    @Html.HiddenFor(b => b.FirstName)
+    @Html.HiddenFor(b => b.LastName)
+    @Html.HiddenFor(b => b.ShelfNumber)
+    @Html.HiddenFor(b => b.PageNumber)
+    @Html.HiddenFor(b => b.BookId)
+    @Html.HiddenFor(b => b.AuthorId)
+    @Html.HiddenFor(b => b.UserId)
+
+
+
+    <h4><b>Kitap Adı: </b>@Model.BookName</h4>
+    <h4><b>Yazar Adı: </b>@Model.FirstName @Model.LastName</h4>
+    <h4><b>Raf Numarası: </b>@Model.ShelfNumber</h4>
+    <h4><b>Sayfa Sayısı: </b>@Model.PageNumber</h4>
+</div>
+    <div>
+        <h3>Bu Kitabı Ödünç Al</h3>
+        <table class="table table-bordered">
+            <tr>
+                <th>Ödünç Alınan Tarih</th>
+                <th>Teslim Tarihi</th>
+            </tr>
+            <tr>
+                <td><input type="datetime" class="form-control" name="BarrowDate" /></td>
+                <td><input type="datetime" class="form-control" name="ReturnDate" /></td>
+            </tr>
+        </table>
+        <button href="/Borrow/BorrowToBook/" class="btn btn-info">Ödünç Al</button>
+    </div>
+}
+
+
