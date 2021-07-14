@@ -17,6 +17,7 @@ namespace KutuphaneOtomasyonuMvc.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult Register(RegisterModel model)
         {

@@ -12,6 +12,7 @@ namespace KutuphaneOtomasyonuMvc.DbModels.Entity
         {
             this.Borrows = new List<Borrow>();
         }
+
         [Key]
         public int Id { get; set; }
         public int Type { get; set; }
@@ -28,6 +29,7 @@ namespace KutuphaneOtomasyonuMvc.DbModels.Entity
         [StringLength(50)]
         public string Email { get; set; }
         public string Password { get; set; }
+
         public virtual ICollection<Borrow> Borrows { get; set; }
     }
 }

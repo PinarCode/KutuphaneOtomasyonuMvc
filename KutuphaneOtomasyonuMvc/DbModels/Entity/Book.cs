@@ -13,6 +13,7 @@ namespace KutuphaneOtomasyonuMvc.DbModels.Entity
         {
             this.Borrows = new List<Borrow>();
         }
+
         [Key]
         public int Id { get; set; }
         public int CategoryId { get; set; }
@@ -22,6 +23,7 @@ namespace KutuphaneOtomasyonuMvc.DbModels.Entity
         [StringLength(20)]
         public string ShelfNumber { get; set; }
         public int PageNumber { get; set; }
+
         public virtual Category Category { get; set; }
         public virtual Author Author { get; set; }
         public virtual ICollection<Borrow> Borrows { get; set; }

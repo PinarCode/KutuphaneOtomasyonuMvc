@@ -15,6 +15,7 @@ namespace KutuphaneOtomasyonuMvc.DbModels.Entity
         public int BookId { get; set; }
         public DateTime BarrowDate { get; set; }
         public DateTime ReturnDate { get; set; }
+
         public virtual User User { get; set; }
         public virtual Book Book { get; set; }
     }

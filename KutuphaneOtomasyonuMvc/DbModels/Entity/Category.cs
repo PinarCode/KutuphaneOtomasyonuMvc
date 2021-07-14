@@ -12,10 +12,12 @@ namespace KutuphaneOtomasyonuMvc.DbModels.Entity
         {
             this.Books = new List<Book>();
         }
+
         [Key]
         public int Id { get; set; }
         [StringLength(100)]
         public string CategoryName { get; set; }
+
         public virtual ICollection<Book> Books { get; set; }
     }
 }
